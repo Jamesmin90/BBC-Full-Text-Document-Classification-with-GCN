@@ -10,7 +10,7 @@ A Text-GCN uses words and documents as nodes. So the total number of nodes in th
 As one can see in this graph the words are the word nodes and the nodes with the “O” are the document nodes. The black bold edges are Document to word edges, the gray thin edges are word-word edges. The bold edges represent that these words occur in the documents that it is linked to, and the gray edges represent that these words co occur in a document within a window size of 20. Lastly, the different colors represent different documents as classes.
 Initially they set the feature matrix to be an identity matrix, which means that every word or document is represented as a one-hot vector. For the weights of the edges between a document node and a word node, the term frequency-inverse document frequency(TF-IDF) of the word in the document is used; where the term frequency is the number of times the word appears in the document, and the inverse document frequency is the logarithmically scaled inverse fraction of the number of documents that contain the word. For the weights of the edges between words, they utilize global word co occurrence information by using a fixed size sliding window on all documents, in the corpus to gather co occurrence statistics.  For this they use Pointwise mutual information(PMI).  The window size used is 20 and the equation for the PMI can be seen in the notebook.
 I used a dataset from Kaggle.com called “BBC Full Text Document Classification,” which has a total of 2226 documents that are separated into 5 different categories(business, entertainment, politics, sport, and tech). The goal is to train and test the Text-GCN on this dataset. We followed closely the model the authors of the article on Text-GCN made from Yao’s github page: https://github.com/yao8839836/text_gcn. There, the authors used Tensorflow, however, I decided to use Pytorch instead.
-![image](https://user-images.githubusercontent.com/54721700/176487546-f2811a6d-78dc-499b-859f-c3c3ae673402.png)
+
 
 As one can see in this graph the words are the word nodes and the nodes with the “O” are the document nodes. The black bold edges are Document to word edges, the gray thin edges are word-word edges. The bold edges represent that these words occur in the documents that it is linked to, and the gray edges represent that these words co occur in a document within a window size of 20. Lastly, the different colors represent different documents as classes.
 Initially they set the feature matrix to be an identity matrix, which means that every word or document is represented as a one-hot vector. For the weights of the edges between a document node and a word node, the term frequency-inverse document frequency(TF-IDF) of the word in the document is used; where the term frequency is the number of times the word appears in the document, and the inverse document frequency is the logarithmically scaled inverse fraction of the number of documents that contain the word. For the weights of the edges between words, they utilize global word co occurrence information by using a fixed size sliding window on all documents, in the corpus to gather co occurrence statistics.  For this they use Pointwise mutual information(PMI).  The window size used is 20 and the equation for the PMI can be seen in the notebook.
@@ -42,16 +42,16 @@ b.	Test: [2021/8/21 17:47:20]	loss= 1.64000, accuracy= 0.20599, time= 0.29954
 7.	Train and test split at 80-20, with word vector cosine similarity as weights:
 a.	Train: [2021/8/21 19:51:21] Epoch: 12, train_loss= 1.51065, train_acc= 0.73283, val_loss= 1.61231, val_acc= 0.19101, time= 0.88708
 b.	Test:[2021/8/21 19:51:25]	loss= 1.61458, accuracy= 0.22472, time= 0.29094
-![image](https://user-images.githubusercontent.com/54721700/176487769-8bbfeffb-bd5e-4e84-846a-5d6ffb726673.png)
+
 
 
 BBC Full Text Document Classification with LSTM
 In Yao’s paper his Text-GCN model outperformed a LSTM text classifier. Therefore, I also wanted to build a multi-class LSTM text classifier with the BBC dataset in order to compare the two models. I used the same clean string function used in Yao’s and followed a LSTM model used by dikshabhati2002 in kaggle for a multi-class text classifier. This model used a Bidirectional LSTM model from Keras Tensorflow, it used a 40% dropout rate, a dense Relu activation function for the first layer and the second layer a dense softmax function. In the compiler, it uses ‘categorical_crossentropy’ for its loss function and ‘adam’ for the optimizer. After 10 epochs the training accuracy showed to be .9708 and the test accuracy to be .9258, out performing the Text-GCN by .67636. Running 10 epochs can take up to one hour depending on your CPU. With the amount of memory granted by Kaggle, one cannot run all 10 epochs. The memory maxes out after 4 epochs. Therefore, I had to train and test this model separately on my CPU and it took roughly 1 hour and 5 minutes.
-![image](https://user-images.githubusercontent.com/54721700/176487810-a4c3485a-7c68-43cf-8a81-9eccba05c4ba.png)
+
 
 
 Along with the dataset and files that is attached to this document, one can find these two implementations on Kaggle:
 1.	https://www.kaggle.com/jamesmin90/bbc-full-text-document-classification-with-gcn
 2.	https://www.kaggle.com/jamesmin90/bbc-full-text-document-classification-with-lstm
-![image](https://user-images.githubusercontent.com/54721700/176487840-1af23882-ca7f-4a9f-87bf-5341ef1be639.png)
+
 
