@@ -3,7 +3,7 @@
 Task: This exercise was based on an article written by Yao, Mao, and Luo in 2018 concerning a
 Multiclass-text-classification program using a Graph Convolutional Network Model called a
 “Text-GCN.” (https://arxiv.org/pdf/1809.05679.pdf). Based on the Kipf and Welling paper “Semi-Supervised Classification with Graph Convolutional Networks” a GCN is a multilayer neural network that operates directly on a graph and induces embedding vectors of nodes based on properties of their neighborhoods. So, imagine a graph with 9 nodes, where 8 nodes are all connected to 1 node in the center. All the neighboring nodes would pass their messages or datas about itself to the middle node, and the middle node would send out its message to the 8 other nodes. Each node will have a feature vector and you will multiply each vector with a weight matrix and pass it to its neighbors, then you add everything up, and finally you pass it through some form of non-linearity or activation function.
-![image](https://user-images.githubusercontent.com/54721700/176487307-a488ce92-97fe-4dd8-8eed-f7936b2cbb5a.png)
+
 
 A Text-GCN uses words and documents as nodes. So the total number of nodes in the graph equals the number of documents plus the number of unique words in the corpus![image](https://user-images.githubusercontent.com/54721700/176487416-a1a315ac-7ccf-4758-82a2-481b1740c9d3.png)
 
