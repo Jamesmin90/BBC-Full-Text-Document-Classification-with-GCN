@@ -6,6 +6,7 @@ Multiclass-text-classification program using a Graph Convolutional Network Model
 
 
 A Text-GCN uses words and documents as nodes. So the total number of nodes in the graph equals the number of documents plus the number of unique words in the corpus. 
+
 ![GCN](./GCN.jpg "GCN")
 
 As one can see in this graph the words are the word nodes and the nodes with the “O” are the document nodes. The black bold edges are Document to word edges, the gray thin edges are word-word edges. The bold edges represent that these words occur in the documents that it is linked to, and the gray edges represent that these words co occur in a document within a window size of 20. Lastly, the different colors represent different documents as classes.
