@@ -50,7 +50,7 @@ b.	Test:[2021/8/21 19:51:25]	loss= 1.61458, accuracy= 0.22472, time= 0.29094
 BBC Full Text Document Classification with LSTM
 In Yao’s paper his Text-GCN model outperformed a LSTM text classifier. Therefore, I also wanted to build a multi-class LSTM text classifier with the BBC dataset in order to compare the two models. I used the same clean string function used in Yao’s and followed a LSTM model used by dikshabhati2002 in kaggle for a multi-class text classifier. This model used a Bidirectional LSTM model from Keras Tensorflow, it used a 40% dropout rate, a dense Relu activation function for the first layer and the second layer a dense softmax function. In the compiler, it uses ‘categorical_crossentropy’ for its loss function and ‘adam’ for the optimizer. After 10 epochs the training accuracy showed to be .9708 and the test accuracy to be .9258, out performing the Text-GCN by .67636. Running 10 epochs can take up to one hour depending on your CPU. With the amount of memory granted by Kaggle, one cannot run all 10 epochs. The memory maxes out after 4 epochs. Therefore, I had to train and test this model separately on my CPU and it took roughly 1 hour and 5 minutes.
 
-![LSTM](./LSTM_results.jpg "Results")
+![LSTM](LSTM results.jpg "Results")
 
 Along with the dataset and files that is attached to this document, one can find these two implementations on Kaggle:
 1.	https://www.kaggle.com/jamesmin90/bbc-full-text-document-classification-with-gcn
