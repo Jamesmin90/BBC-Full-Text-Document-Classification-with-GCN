@@ -1,5 +1,5 @@
 # BBC-Full-Text-Document-Classification-with-GCN
-
+## One must download the dataset first here: https://www.kaggle.com/datasets/shivamkushwaha/bbc-full-text-document-classification
 Task: This exercise was based on an article written by Yao, Mao, and Luo in 2018 concerning a
 Multiclass-text-classification program using a Graph Convolutional Network Model called a
 “Text-GCN.” (https://arxiv.org/pdf/1809.05679.pdf). Based on the Kipf and Welling paper “Semi-Supervised Classification with Graph Convolutional Networks” a GCN is a multilayer neural network that operates directly on a graph and induces embedding vectors of nodes based on properties of their neighborhoods. So, imagine a graph with 9 nodes, where 8 nodes are all connected to 1 node in the center. All the neighboring nodes would pass their messages or datas about itself to the middle node, and the middle node would send out its message to the 8 other nodes. Each node will have a feature vector and you will multiply each vector with a weight matrix and pass it to its neighbors, then you add everything up, and finally you pass it through some form of non-linearity or activation function.
